@@ -1,0 +1,86 @@
+:root{
+    --font-color: #d1d1d1;
+}
+.wrapper{
+    display: flex;
+    width: 100%;
+    /* justify-content: center; */
+    margin-top: 40px;
+
+}
+.wrapperOfAllDiv{
+    width: 100%;
+    background-color: #202229;
+    height: auto;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+.mainWrapper{
+    width: 95%;
+    margin-top: 35px;
+
+}
+.secondWrapper{
+    display: flex;
+    width: 80%;
+    margin: 30px 0 0 80px;
+}
+.imageWrapper{
+    max-width: 280px;
+    width: 100%;
+}
+.imageWrapper img{
+    width: 100%;
+    border-radius: 5px;
+}
+.infoWrapper{
+    margin-left: 30px;
+}
+.infoWrapper h2{
+    color: var(--font-color);
+}
+.infoWrapper h4{
+    color: var(--font-color);
+}
+.playerWrapper{
+    display: flex;
+    width: 70%;
+    border-radius: 20px;
+    padding: 50px 0 50px 0;
+    justify-content: center;
+}
+.videoWrapper{
+    width: 30%;
+}
+.wrapperForPlayer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+@media screen and (max-width:800px) {
+    .wrapperOfAllDiv{
+        flex-direction: column-reverse;
+    }
+    .secondWrapper{
+        align-items: center;
+        width: 100%;
+        margin: 0;
+        
+    }
+    .imageWrapper{
+        max-width: 40%;
+    }
+    .playerWrapper{
+        padding: 50px 0 0 0;
+        width: 100%;
+    }
+    .imageWrapper{
+        max-width: 30%;
+        margin-left: 5%;
+    }
+    .infoWrapper{
+        font-size: 12px;
+    }
+    
+}

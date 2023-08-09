@@ -1,0 +1,14 @@
+.videoPlayer {
+    width: 30%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .videoPlayer video {
+    width: 50%;
+  }
+  .videoPlayer .controls {
+    margin-top: 20px;
+  }
+  .videoPlayer .controls input[type="range"] {
+    width: 100%;
+}

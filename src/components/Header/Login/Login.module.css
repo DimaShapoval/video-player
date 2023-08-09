@@ -1,0 +1,11 @@
+.wrapper{
+    width: 23%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navLink{
+    text-decoration: none;
+    color: black;
+    font-size: 19px;
+}

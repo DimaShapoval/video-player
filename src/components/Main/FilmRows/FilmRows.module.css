@@ -1,0 +1,8 @@
+.filmWrapper{
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, auto));
+    /* grid-auto-rows: 200px;     */
+    gap: 20px;
+    margin-top: 50px;
+}

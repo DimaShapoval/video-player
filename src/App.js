@@ -1,24 +1,41 @@
 import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header/Header';
+import Main from './components/Main/Main';
+import { useDispatch, useSelector } from 'react-redux';
+import { Route, Routes } from 'react-router-dom';
+import MoviePage from './components/MoviePage/MoviePage';
+import MoviePageContainer from './components/MoviePage/MoviePageContainer';
+import { getInfoActionCreator } from './Redux/mainReducer';
+import { fetchMovieInfo } from './Redux/moviesInfo/moviesInfo';
+import { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import axios from 'axios';
+import Routing from './components/Routing/Rounting';
+import Loading from './components/MoviePage/Loading/Loading';
+
+export const DomainLink = createContext('https://akvani.com')
+
 
 function App() {
+  const [moviesInfo, setMovieInfo] = useState([])
+  // links in MoviePage, MoviePageContainer, FilmRows
+  useMemo(() => {
+    axios.get('https://akvani.com/php/send_film_js.php?api_key=AIzaSyB-2FfjYXcQO3qkQjWYJQ4Z3ZQZ3ZQZ3ZQ')
+      .then(res => {
+        let data = res.data;
+        setMovieInfo(data);
+      })
+  }, [])
+
+  // fetchMovieInfo();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <DomainLink.Provider value='https://akvani.com'>
+      <div className='appWrapper' >
+        <Header className='header' moviesInfo={moviesInfo} />
+        {moviesInfo ? <Routing moviesInfo={moviesInfo} /> : <Loading />}
+      </div>
+    </DomainLink.Provider>
+
   );
 }
 

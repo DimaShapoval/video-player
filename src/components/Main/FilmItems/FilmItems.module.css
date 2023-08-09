@@ -1,0 +1,69 @@
+.wrapper{
+    max-width: 220px;
+    width: 100%;
+    
+    
+}
+.firstWrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.imageWrapper{
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+
+
+}
+.imageWrapper img{
+    width: 100%;
+    border-radius: 10px;
+    z-index: 0;
+    height: 290px;
+    
+
+}
+.blurWrapper{
+    width: 220px;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 10px;
+    z-index: 3;
+    height: 290px;
+    position: absolute;
+    transition: ease-in-out 0.3s;
+    display: flex;
+    justify-content: center;
+    
+}
+.navMovie{
+    height: 250px;
+    width: 100%;
+    position: absolute;
+}
+.blurWrapper img{
+    width: 50px;
+    opacity: 0;
+    display: none;
+    transition: ease-in-out 0.2s;
+}
+.imageWrapper:hover .blurWrapper{
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.imageWrapper:hover .blurWrapper img{
+    display: block;
+    opacity: 1;
+}
+
+.titleWrapper{
+    width: 100%;
+    text-align: center;
+}
+.title{
+    font-size: 19px;
+    font-weight: 400;
+    color: #d1d1d1;
+    margin: 0;
+    cursor: pointer;
+
+}

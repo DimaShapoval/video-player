@@ -1,0 +1,90 @@
+.humburger{
+    width: 2em;
+    height: 2em;
+    display: flex;
+    justify-content: space-around;
+    flex-flow: column nowrap;
+    z-index: 10;
+}
+.wrapper{
+    display: none;
+    width: 80%;
+    justify-content: end;
+}
+.navigetor{
+    width: 30vw;
+    display: none;
+    height: 100vh;
+    position: absolute;
+    top: 55px;
+    left: 100%;
+    background-color: #f47640;
+    transition: ease-out 0.5s;
+}
+
+.navigetor ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 40px;
+}
+.navLinks{
+    text-decoration: none;
+    color: black;
+    font-size: 19px;
+    margin-top: 20px;
+
+
+}
+.humburger .burger1{
+    transform: rotate(0);
+}
+.humburger .burger2{
+    transform:translateX(0);
+    opacity: 1;
+}
+.humburger .burger3{
+    transform: rotate(0);
+}
+.humburgerActive{
+    width: 2em;
+    height: 2em;
+    display: flex;
+    justify-content: space-around;
+    flex-flow: column nowrap;
+    z-index: 10;
+}
+.humburgerActive .burger1{
+    transform: rotate(46deg);
+}
+.humburgerActive .burger2{
+    transform: translateX(100%);
+    opacity: 0;
+}
+.humburgerActive .burger3{
+    transform: rotate(-47deg);
+}
+.active{
+    left: 70%;
+}
+
+.burger{
+    width: 2em;
+    height: 0.25em;
+    border-radius: 10px;
+    background-color: black;
+    transform-origin: 1px;
+    transition: all 0.3s linear;
+}
+@media screen and (max-width: 1000px) {
+    .wrapper{
+        display: flex;
+        width: 80%;
+        justify-content: end;
+    }
+    .navigetor{
+        display: block;
+    }
+    
+}

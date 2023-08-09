@@ -1,0 +1,13 @@
+.main {}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    background-color: #292C33;
+}
+
+.moviePage {
+    width: 100%;
+}
+
