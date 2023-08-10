@@ -16,7 +16,7 @@ const Routing = ({moviesInfo }) => {
             <Routes>
                 <Route path='/' element={<Main moviesInfo={moviesInfo} pathToVideo={moviePageLocation} context={context} className={style.main} />} />
                 <Route path={`/${moviePageLocation}/view/*`} element={<MoviePageContainer  className={style.moviePage} moviesInfo={moviesInfo} />} />
-                <Route path={`/${moviePageLocation}`} element={<Main className={style.main} moviesInfo={filterForMain} />} />
+                <Route path={`/${moviePageLocation}`} element={<Main className={style.main} moviesInfo={filterForMain} context={context} />} />
                 
             </Routes>
         </div>
