@@ -27,7 +27,13 @@ function App() {
       })
   }, [])
   useEffect(()=>{
-    window.scrollTo(0,0)
+    const log = ()=>{
+        window.scrollTo(0,0)      
+    }
+    window.addEventListener("beforeunload", log);
+    return () => {
+      window.removeEventListener("beforeunload", log);
+    };
   }, [])
 
   // fetchMovieInfo();
