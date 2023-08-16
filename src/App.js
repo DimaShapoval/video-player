@@ -18,13 +18,16 @@ export const DomainLink = createContext('https://akvani.com')
 
 function App() {
   const [moviesInfo, setMovieInfo] = useState([])
-  // links in MoviePage, MoviePageContainer, FilmRows
+  // links in public/title.js
   useMemo(() => {
     axios.get('https://akvani.com/php/send_film_js.php?api_key=AIzaSyB-2FfjYXcQO3qkQjWYJQ4Z3ZQZ3ZQZ3ZQ')
       .then(res => {
         let data = res.data;
-        setMovieInfo(data);
+        setMovieInfo(data); //add info to state
       })
+  }, [])
+  useEffect(()=>{
+    window.scrollTo(0,0)
   }, [])
 
   // fetchMovieInfo();

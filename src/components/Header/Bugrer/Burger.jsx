@@ -28,9 +28,9 @@ const Burger = () => {
             burgerTriger ? //check that burger clicked if true show our burger menu
         <div className={`${style.navigetor}  ${style.active}`} >
         <ul>
-            <NavLink to="./movies" className={style.navLinks} >Movies</NavLink>
-            <NavLink to="./series" className={style.navLinks} >Series</NavLink>
-            <NavLink to="./cartoons" className={style.navLinks} >Cartoons</NavLink>
+            <NavLink to="./movies" className={style.navLinks} >电影</NavLink>
+            <NavLink to="./series" className={style.navLinks} >系列</NavLink>
+            <NavLink to="./cartoons" className={style.navLinks} >卡通</NavLink>
         </ul>
     </div> :
      <div className={style.navigetor} > 

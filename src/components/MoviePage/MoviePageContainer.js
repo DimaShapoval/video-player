@@ -15,6 +15,9 @@ const MoviePageContainer = ({moviesInfo}) =>{
     let infoOfMovie = [...moviesInfo].filter(infoItem => infoItem.id == nameInLocation) // filter our array and take info of movie that was select
     let allInfo = infoOfMovie[0]
     const domainName = useContext(DomainLink)
+    useEffect(()=>{
+        window.scrollTo(0, 0)
+    }, [])
     // console.log(allInfo.video);
     return(
         <div className={style.mainWrapper} >

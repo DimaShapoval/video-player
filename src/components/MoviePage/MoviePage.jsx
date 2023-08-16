@@ -1,16 +1,29 @@
 import React from "react";
 import style from "./MoviePage.module.css"
-import ReactPlayer from "react-player";
 import VideoPlayer from "./VideoPlayer/VideoPlaer";
+import "videojs-hotkeys";
 
 const MoviePage = ({ imageSrc, title, comment, videoSrc, domainLink }) => {
-    let videoOption = {
+    let videoOption = { //add properties for video player
         controls: true,
         sources: [{
             src: `${domainLink}/${videoSrc}`,
             type: 'video/mp4; application/x-mpegURL; application/vnd.apple.mpegurl'
         }],
         aspectRatio: '16:9',
+        plugins: {
+            hotkeys: {
+                volumeStep: 0.1,
+                seekStep: 15,
+                enableModifiersForNumbers: false,
+                doubleClick: true
+            },
+        },
+        userActions: {
+            doubleClick: true
+        }
+
+
 
     }
     return (
@@ -30,7 +43,6 @@ const MoviePage = ({ imageSrc, title, comment, videoSrc, domainLink }) => {
             </div>
             <div className={style.wrapperForPlayer} >
                 <div className={style.playerWrapper} >
-                    {/* <ReactPlayer url={`http://bancdsabadell.com/${videoSrc}`}  controls="true" /> */}
                     <VideoPlayer className={style.videoWrapper} option={videoOption} />
 
                 </div>

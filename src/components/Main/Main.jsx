@@ -4,12 +4,18 @@ import FilmItems from "./FilmItems/FilmItems";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import FilmRows from "./FilmRows/FilmRows";
+import { ScrollRestoration, useLocation } from "react-router-dom";
 
-const Main = ({moviesInfo, context}) => {
+
+
+
+
+
+const Main = ({ moviesInfo, context }) => {
+   
     return (
         <div className={style.mainWrapper} >
-            <FilmRows context={context} moviesInfo={moviesInfo}  />
-
+            <FilmRows context={context} moviesInfo={moviesInfo} />
         </div>
     )
 }

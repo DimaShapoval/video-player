@@ -26,6 +26,11 @@
 .logo{
     text-decoration: none;
     color: black;
+    font-weight: 700;
+    font-size: 18px;
+    cursor: pointer;
+    background-color:transparent;
+    border: none;
     
 }
 h2{
@@ -42,10 +47,12 @@ h2{
     width: 10%;
     margin-left: 90px;
     display: flex;
+    /* grid-area: l; */
     justify-content: center;
 }
 .burger{
     display: none;
+    /* grid-area: b; */
 }
 @media screen and (max-width: 1000px) {
     .rightSide{
@@ -54,6 +61,17 @@ h2{
     .secondWrapper{
         position: fixed;
         z-index: 20;
+        grid-template-columns: 20% 1fr;
+        
+    }
+    .logoWrapper{
+        order: 2;
+        justify-content: flex-end;
+        width: 85%;
+        margin-left: 0;
+    }
+    .burger{
+        order: 1;
     }
     
 }

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import videojs from "video.js";
 import 'video.js/dist/video-js.css';
+import "videojs-hotkeys";
 import style from "./VideoPlayer.module.css"
 
 
@@ -10,7 +11,6 @@ const VideoPlaer = ({option, themeName="sea"})=>{
 
     useEffect(()=>{
         const player = playerRef.current;
-
         if(!player){
             const videoElement = videoRef.current;
             if(!videoElement) return;
@@ -25,9 +25,10 @@ const VideoPlaer = ({option, themeName="sea"})=>{
             }
         }
     }, [option, videoRef, playerRef])
+
     return(
         <div data-vjs-player >
-            <video playsInline="1"  ref={videoRef} className={`video-js vjs-big-play-centered vjs-theme-${themeName}` }></video>
+            <video playsInline="1"  data-setup='{"userActions": {"doubleClick": false }}'  ref={videoRef} className={`video-js vjs-big-play-centered vjs-theme-${themeName}` }></video>
         </div>
     )
 }
