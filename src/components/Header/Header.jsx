@@ -8,7 +8,7 @@ import RightSide from "./RightSide/RightSide";
 
 const Header = ({ moviesInfo }) => {
     const navigate = useNavigate()
-    const backPosition = () =>{
+    const backPosition = () =>{ //function that when you come to main page back same scroll position
         navigate("/");
         setTimeout(()=>{
             window.scrollTo({

@@ -12,8 +12,10 @@ import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import axios from 'axios';
 import Routing from './components/Routing/Rounting';
 import Loading from './components/MoviePage/Loading/Loading';
+import ScrollTopPictures from './components/Main/ScrollTopPictures/ScrollTopPictures';
 
 export const DomainLink = createContext('https://akvani.com')
+export const MovieInfoContext = createContext(null)
 
 
 function App() {
@@ -41,7 +43,10 @@ function App() {
     <DomainLink.Provider value='https://akvani.com'>
       <div className='appWrapper' >
         <Header className='header' moviesInfo={moviesInfo} />
-        {moviesInfo ? <Routing moviesInfo={moviesInfo} /> : <Loading />}
+        <MovieInfoContext.Provider value={moviesInfo} >
+          {moviesInfo ? <Routing moviesInfo={moviesInfo} /> : <Loading />}
+        </MovieInfoContext.Provider>
+        
       </div>
     </DomainLink.Provider>
 

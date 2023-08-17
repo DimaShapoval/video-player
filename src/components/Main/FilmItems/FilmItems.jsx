@@ -6,14 +6,12 @@ import { NavLink, useLocation } from "react-router-dom";
 const FilmItems = ({ imageSrc, title, itemId, pathToVideo }) => {   
     let location = useLocation()
     const savePosition = () =>{
-        if(location.pathname.length === 1){
+        if(location.pathname.length === 1){ //if you don't come to any page main scroll position save to sessionStorage
             sessionStorage.removeItem('scrollY')
             sessionStorage.setItem('scrollY', window.scrollY);
-            console.log(sessionStorage);
         }
-        else{
+        else{ //else we remove sessonStorage item with scroll info
             sessionStorage.removeItem('scrollY')
-            console.log(sessionStorage);
         }
     } 
     return (
