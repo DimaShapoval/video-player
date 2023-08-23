@@ -12,12 +12,11 @@ import ScrollTopPictures from "./ScrollTopPictures/ScrollTopPictures";
 
 
 
-const Main = ({ moviesInfo, context, classForGalary, infoForSlider }) => {
 
+const Main = ({ moviesInfo, context, classForGalary, infoForSlider }) => {
     return (
         <div className={style.mainWrapper} >
             <ScrollTopPictures classForGalary={classForGalary} infoForSlider={infoForSlider} moviesInfo={moviesInfo} context={context} />
-
             <FilmRows context={context} moviesInfo={moviesInfo} />
         </div>
     )
