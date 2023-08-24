@@ -27,6 +27,11 @@ function App() {
         let data = res.data;
         setMovieInfo(data); //add info to state
       })
+      axios.get('https://akvani.com/php/get_ip.php') //send ip of user
+      .then(res =>{
+        let data = res.data
+        console.log(data);
+      })
   }, [])
   useEffect(()=>{
     const log = ()=>{

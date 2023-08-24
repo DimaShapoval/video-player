@@ -19,6 +19,7 @@ const MoviePage = ({ imageSrc, title, comment, videoSrc, domainLink }) => {
                 doubleClick: true
             },
         },
+        className: "lol",
         userActions: {
             doubleClick: true
         }

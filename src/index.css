@@ -14,6 +14,22 @@ a{
 .carousel-dots li button:before{
   color: #FFFF !important;
 }
+.vjs-button > .vjs-icon-placeholder:before{
+  line-height: 0 !important;
+  margin-left: 5px;
+}
+.vjs-big-play-button .vjs-icon-placeholder{
+  line-height: 0;
+  right: 45px;
+}
+.video-js .vjs-big-play-button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.vjs-remaining-time-display{
+  position: relative;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

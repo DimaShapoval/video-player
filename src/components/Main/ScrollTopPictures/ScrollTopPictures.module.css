@@ -49,6 +49,7 @@
     position: relative;
 }
 .slider{
+    width: 100%;
     max-width: 1000px;
     min-width: none;
 }

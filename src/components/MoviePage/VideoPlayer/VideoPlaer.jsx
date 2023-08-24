@@ -28,7 +28,7 @@ const VideoPlaer = ({option, themeName="sea"})=>{
 
     return(
         <div data-vjs-player >
-            <video playsInline="1"  data-setup='{"userActions": {"doubleClick": false }}'  ref={videoRef} className={`video-js vjs-big-play-centered vjs-theme-${themeName}` }></video>
+            <video playsInline="1"  data-setup='{"userActions": {"doubleClick": false }}'  ref={videoRef} className={`video-js vjs-big-play-centered ` }></video>
         </div>
     )
 }

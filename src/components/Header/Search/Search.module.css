@@ -1,0 +1,13 @@
+.wrapper{
+    display: flex;
+}
+.searchInput{
+    background: transparent;
+    outline: none;
+    border: 2px solid #292C33;
+    border-radius: 5px;
+    padding: 10px;
+}
+.searchInput::placeholder{
+    color: black;
+}

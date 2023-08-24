@@ -39,9 +39,15 @@ h2{
 .rightSide{
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(2, 80%);
+    grid-template-columns: repeat(2, 60%);
     justify-content: space-between;
     
+}
+.secondItem{
+    display: flex;
+    width: 70%;
+    align-items: center;
+    justify-content: center;
 }
 .logoWrapper{
     width: 10%;

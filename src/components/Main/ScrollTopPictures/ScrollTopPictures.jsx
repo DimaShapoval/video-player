@@ -28,19 +28,19 @@ const ScrollTopPictures = ({ classForGalary, infoForSlider, context }) => {
         cssEase: "linear"
       };
     useMemo(() => {
-        axios.get('https://akvani.com/php/send_film_js.php?api_key=AIzaSyB-2FfjYXcQO3qkQjWYJQ4Z3ZQZ3ZQZ3ZQ')
+        axios.get('https://akvani.com/php/send_slider_js.php?api_key=AIzaSyB-2FfjYXcQO3qkQjWYJQ4Z3ZQZ3ZQZ3ZQ')
             .then(res => {
                 let data = res.data;
                 setMovieInfo(data); //add info to state
             })
     }, [])
     useEffect(() => { //create items for carusel
-        setScrollImages([...moviesInfo].map(item => item.id < 60 ?
+        setScrollImages([...moviesInfo].map(item =>
             <h3 key={item.id} >
                 <div className={style.imageWrapper} >
                     <img src={`${context}/${item.picture}`} alt="" key={item.id} style={{ backgroundSize: 'cover', width: 'auto', height: '300px' }} />
                 </div>
-            </h3> : null))
+            </h3>))
 
     }, [moviesInfo])
     useEffect(() => { //create carusel with items in useEffect because Slider not update if he render

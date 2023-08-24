@@ -27,6 +27,7 @@
     "redux-thunk": "^2.4.2",
     "slick-carousel": "^1.8.1",
     "styled-components": "^6.0.4",
+    "video-js": "^0.7.0",
     "video-react": "^0.16.0",
     "videojs-hotkeys": "^0.2.28",
     "videojs-seek-buttons": "^4.0.3",

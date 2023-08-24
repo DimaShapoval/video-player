@@ -1,0 +1,39 @@
+.mainWrapper{
+    grid-area: m;
+    width: 80%;
+    height: 100%;
+    margin-top: 35px;
+    border-radius: 5px;
+    /* background-color: aquamarine; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    background-color: #202229;
+}
+.filmWrapper{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    
+    /* margin-top: 50px; */
+}
+.pagesWrapper{
+    display: flex;
+    width: 60%;
+    justify-content: center;
+}
+.navPage{
+    margin-left: 10px;
+    width: 30px;
+    height: 30px;
+    color: #FFFFFF;
+    background-color: #f47640;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.navPage:nth-child(1){
+    margin-left: 0;
+}
