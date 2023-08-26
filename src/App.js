@@ -26,6 +26,7 @@ function App() {
       .then(res => {
         let data = res.data;
         setMovieInfo(data); //add info to state
+        console.log(data);
       })
       axios.get('https://akvani.com/php/get_ip.php') //send ip of user
       .then(res =>{

@@ -58,9 +58,28 @@
     display: flex;
     justify-content: center;
 }
+.actorWrapper{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+
+}
+.actorWrapper h2{
+    width: 80%;
+    color: var(--font-color);
+}
+.actorItemsWrapper{
+    display: grid;
+    width: 80%;
+    height: auto;
+    margin: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, auto));
+    justify-content: center;
+}
 @media screen and (max-width:800px) {
     .wrapperOfAllDiv{
-        flex-direction: column-reverse;
+        /* flex-direction: column-reverse; */
     }
     .secondWrapper{
         align-items: center;

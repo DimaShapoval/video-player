@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import style from "./ScrollTopPictures.module.css"
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Slider from "react-slick";
 import ImageGallery from "react-image-gallery";
@@ -13,6 +13,7 @@ const ScrollTopPictures = ({ classForGalary, infoForSlider, context }) => {
     const [scrollClass, setScrollClass] = useState(null)
     const [scrollImages, setScrollImages] = useState(null)
     const [slider, setSlider] = useState(null)
+    const navigator = useNavigate()
     const settings = {
         dots: true,
         infinite: true,
@@ -37,8 +38,8 @@ const ScrollTopPictures = ({ classForGalary, infoForSlider, context }) => {
     useEffect(() => { //create items for carusel
         setScrollImages([...moviesInfo].map(item =>
             <h3 key={item.id} >
-                <div className={style.imageWrapper} >
-                    <img src={`${context}/${item.picture}`} alt="" key={item.id} style={{ backgroundSize: 'cover', width: 'auto', height: '300px' }} />
+                <div className={style.imageWrapper} onClick={()=>{navigator(`/${item.type}/view/${item.title}/${item.id}`)}} >
+                    <img src={`${context}/${item.picture}`}  alt="" key={item.id} style={{ backgroundSize: 'cover', width: 'auto', height: '300px' }} />
                 </div>
             </h3>))
 

@@ -1,5 +1,7 @@
 .wrapper{
     display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
 }
 .searchInput{
     background: transparent;
@@ -10,4 +12,27 @@
 }
 .searchInput::placeholder{
     color: black;
+}
+.nav{
+    color: black;
+    margin: 10px;
+}
+.box{
+    display: flex;
+    width:auto;
+    cursor: pointer;
+    padding-left: 10px;
+    border-top: .1px solid #292C33;
+    
+}
+
+.resualtWrapper{
+    display: flex;
+    background-color: aliceblue;
+    width: 180px;
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    z-index: 9999;
+    border-radius: 5px;
 }

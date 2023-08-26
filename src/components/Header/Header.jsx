@@ -26,7 +26,7 @@ const Header = ({ moviesInfo }) => {
                     <button type="button" className={style.logo} onClick={backPosition} ><h2>LOGO</h2></button>
                 </div>
 
-                <RightSide className={style.rightSide} />
+                <RightSide moviesInfo={moviesInfo} className={style.rightSide} />
                 <Burger className={style.burger} />
 
 

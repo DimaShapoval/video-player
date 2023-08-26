@@ -2,10 +2,10 @@ import React from "react";
 import style from "./Search.module.css"
 
 
-const Search = () =>{
-    return(
+const Search = ({ inputValue, changeFunction }) => {
+    return (
         <div>
-            <input className={style.searchInput} type="text"  placeholder="搜索" />
+            <input onChange={changeFunction} className={style.searchInput} type="text" value={inputValue} placeholder="搜索" />
         </div>
     )
 }

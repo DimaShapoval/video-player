@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import style from "./MoviePage.module.css"
 import VideoPlayer from "./VideoPlayer/VideoPlaer";
 import "videojs-hotkeys";
+import ActorItem from "./ActorItem/ActorItem";
 
-const MoviePage = ({ imageSrc, title, comment, videoSrc, domainLink }) => {
+const MoviePage = ({ imageSrc, title, comment, videoSrc, domainLink, infoOfActors }) => {
+    const [ arrayOfActors, setArrayOfActors ] = useState(null) 
     let videoOption = { //add properties for video player
         controls: true,
         sources: [{
@@ -27,6 +29,16 @@ const MoviePage = ({ imageSrc, title, comment, videoSrc, domainLink }) => {
 
 
     }
+    useEffect(()=>{
+        if(infoOfActors){
+            setArrayOfActors([...infoOfActors].map((item, index) => {
+                let link = `${domainLink}/${item.photo}`
+                return <ActorItem nameOfActor={item.name} key={index} photoOfActor={link.replace(/ /g,'')} />
+            }))
+        }
+       
+    }, [infoOfActors])
+    
     return (
         <div className={style.wrapperOfAllDiv} >
             <div className={style.wrapper} >
@@ -46,6 +58,12 @@ const MoviePage = ({ imageSrc, title, comment, videoSrc, domainLink }) => {
                 <div className={style.playerWrapper} >
                     <VideoPlayer className={style.videoWrapper} option={videoOption} />
 
+                </div>
+            </div>
+            <div className={style.actorWrapper} >
+                <h2>演员</h2>
+                <div className={style.actorItemsWrapper} >
+                    {arrayOfActors ? arrayOfActors : null}
                 </div>
             </div>
 
