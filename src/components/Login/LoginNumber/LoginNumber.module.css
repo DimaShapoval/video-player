@@ -66,6 +66,18 @@ span{
 .errorAll input[type="submit"]{
     outline: none;
 }
+.errorEmail input[type="email"]{
+    outline: 2px solid red;
+}
+.errorEmail label:nth-child(1){
+    color:red;
+}
+.errorPassword .passwordWrapper input{
+    outline: 2px solid red;
+}
+.errorPassword .label{
+    color: red;
+}
 .signUpWrapper p{
     margin: 0;
 }

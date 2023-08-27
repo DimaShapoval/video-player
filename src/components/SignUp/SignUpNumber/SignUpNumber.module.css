@@ -61,13 +61,31 @@ span{
 .errorAll input[type="submit"]{
     outline: none;
 }
-.errorNumber input[name="number"]{
+.errorAll .username{
     outline: 2px solid red;
 }
-.errorNumber p{
+.errorAll .userLabel{
     color: red;
 }
-.errorNumber label:nth-child(1){
+.errorUser .userLabel{
+    color: red;
+}
+.errorUser .username{
+    outline: 2px solid red;
+}
+.username{
+    margin-bottom: 20px;
+}
+.errorEmail input[type="email"]{
+    outline: 2px solid red;
+}
+.errorEmail label:nth-child(1){
+    color:red;
+}
+.errorPassword .passwordWrapper input{
+    outline: 2px solid red;
+}
+.errorPassword .label{
     color: red;
 }
 .signUpWrapper{

@@ -5,6 +5,10 @@
     flex-direction: column;
     align-items: center;
     margin-bottom: 50px;
+    cursor: pointer;
+}
+.wrapper:hover img{
+    background: #d1d1d1;
 }
 .wrapper img{
     width: 100%;

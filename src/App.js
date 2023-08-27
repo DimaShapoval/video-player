@@ -3,7 +3,7 @@ import './App.css';
 import Header from './components/Header/Header';
 import Main from './components/Main/Main';
 import { useDispatch, useSelector } from 'react-redux';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import MoviePage from './components/MoviePage/MoviePage';
 import MoviePageContainer from './components/MoviePage/MoviePageContainer';
 import { getInfoActionCreator } from './Redux/mainReducer';
@@ -20,20 +20,22 @@ export const MovieInfoContext = createContext(null)
 
 function App() {
   const [moviesInfo, setMovieInfo] = useState([])
+  const location = useLocation().pathname.split('/')[1]
   // links in public/title.js
   useMemo(() => {
     axios.get('https://akvani.com/php/send_film_js.php?api_key=AIzaSyB-2FfjYXcQO3qkQjWYJQ4Z3ZQZ3ZQZ3ZQ')
       .then(res => {
         let data = res.data;
         setMovieInfo(data); //add info to state
-        console.log(data);
       })
+      
       axios.get('https://akvani.com/php/get_ip.php') //send ip of user
       .then(res =>{
         let data = res.data
         console.log(data);
       })
   }, [])
+ 
   useEffect(()=>{
     const log = ()=>{
         window.scrollTo(0,0)      

@@ -7,9 +7,9 @@ import { NavLink } from "react-router-dom";
 const SignUpInputsContainer = () => {
     const [showValuePassword, setshowValuePassword] = useState(["visibility_off", "password"])
     const [showValuePassword1, setshowValuePassword1] = useState(["visibility_off", "password"])
-    const [inputValue, setInputValue] = useState({ number: '', password: '', secondPassword: '' });
+    const [inputValue, setInputValue] = useState({ email: '', password: '', confirm_password: '', username: '' });
     const [wrapperClassName, setWrapperClassName] = useState(`${style.wrapper}`)
-    const NUMBER_REGEX = /^1[0-9]{10}$/;
+    const EMAIL_REGEX =  /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     const handleClick = () => {
         (showValuePassword[1] === "password" ? setshowValuePassword(["visibility", "text"]) : setshowValuePassword(["visibility_off", "password"]))
     }
@@ -26,18 +26,32 @@ const SignUpInputsContainer = () => {
 
     }
     const checkValueInRequest = (e) => {
-        if (inputValue.number === "" && inputValue.password === "") {
+        if (inputValue.email === "" && inputValue.password === "" && inputValue.username || !EMAIL_REGEX.test(inputValue.email) && inputValue.password.length < 6) {
             e.preventDefault();
             setWrapperClassName(`${style.wrapper} ${style.errorAll}`)
         }
-        else if(!NUMBER_REGEX.test(inputValue.number)){
+        else if(inputValue.username == ""){
             e.preventDefault();
-            setWrapperClassName(`${style.wrapper} ${style.errorNumber}`)
+            setWrapperClassName(`${style.wrapper} ${style.errorUser}`)
+
+        }
+        else if(!EMAIL_REGEX.test(inputValue.email)){
+            e.preventDefault();
+            setWrapperClassName(`${style.wrapper} ${style.errorEmail}`)
+        }
+        else if(inputValue.password != inputValue.confirm_password){
+            e.preventDefault();
+            setWrapperClassName(`${style.wrapper} ${style.errorPassword}`)
+        }
+        else if(inputValue.password.length < 6){
+            e.preventDefault();
+            setWrapperClassName(`${style.wrapper} ${style.errorPassword}`)
         }
     }
     return (
         <div className={wrapperClassName} >
-            <p>输入有效值</p>
+            <label className={style.userLabel}>用户名</label>
+            <input className={style.username} onChange={controlNumber} value={inputValue.username} name="username" placeholder="用户名" />
             <label>电话号码</label>
             <SignUpNumber change={controlNumber} value={inputValue.number} />
             <label className={style.label} >创建密码</label>
@@ -49,7 +63,7 @@ const SignUpInputsContainer = () => {
             </div>
             <label className={style.label} >重复输入密码</label>
             <div className={style.passwordWrapper} >
-                <SignUpPassword value={inputValue.secondPassword} name="secondPassword" change={controlNumber} typeOfInput={showValuePassword1[1]} />
+                <SignUpPassword value={inputValue.secondPassword} name="confirm_password" change={controlNumber} typeOfInput={showValuePassword1[1]} />
                 <span onClick={handleClick1} className={`material-symbols-outlined`}>
                     {showValuePassword1[0]}
                 </span>

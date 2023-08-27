@@ -17,9 +17,14 @@ const MainFilter = ({ moviesInfo, context, classForGalary, infoForSlider }) => {
     const [countOfPages, setCountOfPages] = useState(null);
     const [arrayOfItems, setArrayOfItems] = useState(null)
     let location = useLocation().pathname.split('=')[1]
+    let webLovation = useLocation().pathname
+    // console.log(webLovation.split('/')[1]);
+    // console.log(webLovation.split('/')[2]);
+
 
     let array = [];
     useEffect(() => { //create navButtons of films
+        console.log(moviesInfo);
         if (Math.ceil([...moviesInfo].length / 16) <= 1) { //search how many films, and how many pages we need
             //if it's only one page we don't create buttons
             setCountOfPages(null)
@@ -58,7 +63,8 @@ const MainFilter = ({ moviesInfo, context, classForGalary, infoForSlider }) => {
     console.log();
     return (
         <div className={style.mainWrapper} >
-            <ScrollTopPictures classForGalary={classForGalary} infoForSlider={infoForSlider} moviesInfo={moviesInfo} context={context} />
+            {webLovation.split('/')[1] !== "actor" && webLovation.split('/')[2] !== "view" ? 
+            <ScrollTopPictures classForGalary={classForGalary} infoForSlider={infoForSlider} moviesInfo={moviesInfo} context={context}/> : null}
             {arrayOfItems ? <FilmRows nameOfCategory={""} nav={""} context={context} moviesInfo={arrayOfItems} /> : <p>Loading...</p>}
             <div className={style.pagesWrapper} >
                 {countOfPages ? countOfPages : null}

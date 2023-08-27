@@ -4,7 +4,7 @@ import VideoPlayer from "./VideoPlayer/VideoPlaer";
 import "videojs-hotkeys";
 import ActorItem from "./ActorItem/ActorItem";
 
-const MoviePage = ({ imageSrc, title, comment, videoSrc, domainLink, infoOfActors }) => {
+const MoviePage = ({ imageSrc, title, comment, videoSrc, domainLink, infoOfActors, actorId }) => {
     const [ arrayOfActors, setArrayOfActors ] = useState(null) 
     let videoOption = { //add properties for video player
         controls: true,
@@ -31,9 +31,10 @@ const MoviePage = ({ imageSrc, title, comment, videoSrc, domainLink, infoOfActor
     }
     useEffect(()=>{
         if(infoOfActors){
+        
             setArrayOfActors([...infoOfActors].map((item, index) => {
                 let link = `${domainLink}/${item.photo}`
-                return <ActorItem nameOfActor={item.name} key={index} photoOfActor={link.replace(/ /g,'')} />
+                return <ActorItem nameOfActor={item.name} key={index} idOfActor={(item.id).trim()} photoOfActor={link.replace(/ /g,'')} />
             }))
         }
        

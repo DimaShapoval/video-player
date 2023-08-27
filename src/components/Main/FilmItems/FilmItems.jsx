@@ -5,6 +5,7 @@ import { NavLink, useLocation } from "react-router-dom";
 
 const FilmItems = ({ imageSrc, title, itemId, pathToVideo }) => {   
     let location = useLocation()
+    console.log();
     const savePosition = () =>{
         if(location.pathname.length === 1){ //if you don't come to any page main scroll position save to sessionStorage
             sessionStorage.removeItem('scrollY')
@@ -19,8 +20,10 @@ const FilmItems = ({ imageSrc, title, itemId, pathToVideo }) => {
             <div className={style.wrapper} >
             <div className={style.imageWrapper} >
                 <div className={style.blurWrapper} >
-                    <img src={playIMage} alt="" />
-                    <NavLink className={style.navMovie} to={`/${pathToVideo}/view/${title}/${itemId}`} ></NavLink>
+                    {location.pathname.split("/")[1] != "actors" ? <img src={playIMage} alt="" /> : null}
+                    {location.pathname.split("/")[1] != "actors" ? <NavLink className={style.navMovie} to={`/${pathToVideo}/view/${title}/${itemId}`} ></NavLink> 
+                    : <NavLink className={style.navMovie} to={`/${pathToVideo}/view/${title}/${itemId}/page=1`} ></NavLink>}
+                    
                 </div>
 
                 <img src={imageSrc} alt="" />

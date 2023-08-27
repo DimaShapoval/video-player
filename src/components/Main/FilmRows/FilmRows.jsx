@@ -7,10 +7,20 @@ import { NavLink, useLocation } from "react-router-dom";
 
 const FilmRows = ({ moviesInfo, context, nameOfCategory, nav }) => {
     let location = useLocation().pathname
-    let movieArray = moviesInfo.map(item => {
+    let movieArray = moviesInfo.map((item, index) => {
         let itemTitle = item.title
+        let itemId = item.id;
+        let itemPicture = item.picture
+        let itemType = item.type;
+        if(location.split('/')[1] === 'actors'){
+            itemTitle = item.actor_name
+            itemId = item.actor_id
+            itemPicture = item.photo
+            itemType = "actor"
+
+        }
         let link = String(itemTitle).replace(/\s/g, '-')
-        return <FilmItems pathToVideo={item.type} imageSrc={`${context}/${item.picture}`} itemId={item.id} title={link} key={item.id} />
+        return <FilmItems pathToVideo={itemType} imageSrc={`${context}/${itemPicture}`} itemId={itemId} title={link} key={index} />
     })
     let secondMovieArray = [...movieArray];
     if (location === "/") {

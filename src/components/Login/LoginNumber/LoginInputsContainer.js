@@ -6,8 +6,9 @@ import { NavLink } from "react-router-dom";
 
 const LoginInputsContainer = () => {
     const [showValuePassword, setshowValuePassword] = useState(["visibility_off", "password"])
-    const [inputValue, setInputValue] = useState({ number: '', password: '' });
+    const [inputValue, setInputValue] = useState({ email: '', password: '' });
     const [wrapperClassName, setWrapperClassName] = useState(`${style.wrapper}`)
+    const EMAIL_REGEX =  /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
    
     const handleClick = () => {//check click on eye
         (showValuePassword[1] === "password" ? setshowValuePassword(["visibility", "text"]) : setshowValuePassword(["visibility_off", "password"]))
@@ -22,14 +23,23 @@ const LoginInputsContainer = () => {
 
     }
     const checkValueInRequest = (e) => {
-        if (inputValue.number === "" && inputValue.password === "") {
+        if (inputValue.email === "" && inputValue.password === "" || !EMAIL_REGEX.test(inputValue.email) && inputValue.password.length < 6) {
             e.preventDefault();
             setWrapperClassName(`${style.wrapper} ${style.errorAll}`)
         }
+        else if(!EMAIL_REGEX.test(inputValue.email)){
+            e.preventDefault();
+            setWrapperClassName(`${style.wrapper} ${style.errorEmail}`)
+        }
+        else if(inputValue.password.length < 6){
+            e.preventDefault();
+            setWrapperClassName(`${style.wrapper} ${style.errorPassword}`)
+        }
+
     }
     return (
         <div className={wrapperClassName} >
-            <label>电话号码</label>
+            <label>电子邮件</label>
             <LoginNumber change={controlNumber} value={inputValue.number} />
             <label className={style.label} >密码</label>
             <div className={style.passwordWrapper} >

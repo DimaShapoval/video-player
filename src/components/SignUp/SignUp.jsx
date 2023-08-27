@@ -4,7 +4,7 @@ import SignUpInputsContainer from "./SignUpNumber/SignUpInputsContainer";
 
 const SignUp = () => {
     return (
-        <form className={style.wrapper} >
+        <form className={style.wrapper} action="php/register_process.php" method="post">
             <div className={style.headerTextWrapper} >
                 <p className={style.headerText} >报名</p>
             </div>
