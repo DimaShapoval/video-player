@@ -45,7 +45,7 @@ h2{
 }
 .secondItem{
     display: flex;
-    width: 70%;
+    width: 80%;
     align-items: center;
     justify-content: center;
 }
@@ -60,7 +60,7 @@ h2{
     display: none;
     /* grid-area: b; */
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
     .rightSide{
         display: none;
     }

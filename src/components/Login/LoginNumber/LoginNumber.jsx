@@ -3,7 +3,7 @@ import InputMask from 'react-input-mask';
 
 const LoginNumber = ({ change, value }) => {
     return (
-        <input onChange={change} name="email" value={value} type="email" placeholder={"输入号码"} ></input>
+        <input onChange={change} name="email" value={value} type="email" placeholder={"电子邮件"} ></input>
     )
 }
 

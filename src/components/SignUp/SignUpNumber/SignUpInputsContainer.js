@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import SignUpNumber from "./SignUpNumber";
 import style from "./SignUpNumber.module.css"
 import SignUpPassword from "./SignUpPassword";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const SignUpInputsContainer = () => {
     const [showValuePassword, setshowValuePassword] = useState(["visibility_off", "password"])
@@ -10,6 +11,7 @@ const SignUpInputsContainer = () => {
     const [inputValue, setInputValue] = useState({ email: '', password: '', confirm_password: '', username: '' });
     const [wrapperClassName, setWrapperClassName] = useState(`${style.wrapper}`)
     const EMAIL_REGEX =  /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    const navigator = useNavigate()
     const handleClick = () => {
         (showValuePassword[1] === "password" ? setshowValuePassword(["visibility", "text"]) : setshowValuePassword(["visibility_off", "password"]))
     }
@@ -25,7 +27,7 @@ const SignUpInputsContainer = () => {
         }
 
     }
-    const checkValueInRequest = (e) => {
+    const checkValueInRequest = (e) => { // check value of form and send it to backend
         if (inputValue.email === "" && inputValue.password === "" && inputValue.username || !EMAIL_REGEX.test(inputValue.email) && inputValue.password.length < 6) {
             e.preventDefault();
             setWrapperClassName(`${style.wrapper} ${style.errorAll}`)
@@ -47,12 +49,28 @@ const SignUpInputsContainer = () => {
             e.preventDefault();
             setWrapperClassName(`${style.wrapper} ${style.errorPassword}`)
         }
+        else{
+            e.preventDefault();
+            axios.post('php/register_process.php', inputValue, { headers: {
+                'Content-Type': 'multipart/form-data'
+            }})
+            .then(res => {
+                if(res.data.status === "success"){
+                    navigator('/login')
+                }
+                else{
+                    e.preventDefault();
+                    setWrapperClassName(`${style.wrapper} ${style.errorAll}`)
+                }
+            })
+        }
     }
+    
     return (
         <div className={wrapperClassName} >
             <label className={style.userLabel}>用户名</label>
             <input className={style.username} onChange={controlNumber} value={inputValue.username} name="username" placeholder="用户名" />
-            <label>电话号码</label>
+            <label>电子邮件</label>
             <SignUpNumber change={controlNumber} value={inputValue.number} />
             <label className={style.label} >创建密码</label>
             <div className={style.passwordWrapper} >
@@ -69,7 +87,7 @@ const SignUpInputsContainer = () => {
                 </span>
             </div>
             <div className={style.submitWrapper} >
-                <input onClick={checkValueInRequest} type="submit"  value={"进来"} />
+                <input onClick={checkValueInRequest} type="button"  value={"进来"} />
             </div>
 
         </div>

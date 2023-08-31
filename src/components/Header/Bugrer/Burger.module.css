@@ -79,7 +79,7 @@
     transform-origin: 1px;
     transition: all 0.3s linear;
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
     .wrapper{
         display: flex;
         width: 80%;

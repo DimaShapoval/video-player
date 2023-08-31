@@ -4,7 +4,7 @@ import LoginInputsContainer from "./LoginNumber/LoginInputsContainer";
 
 const Login = () => {
     return (
-        <form className={style.wrapper} action="php/login_process.php" method="post">
+        <form className={style.wrapper}>
             <div className={style.headerTextWrapper} >
                 <p className={style.headerText} >登录</p>
             </div>
