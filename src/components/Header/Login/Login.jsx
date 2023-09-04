@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 const Login = ()=>{
     return(
         <div className={style.wrapper} >
-            <NavLink to="./login" className={style.navLink} >登录</NavLink>
+            <NavLink to="/login" className={style.navLink} >登录</NavLink>
         </div>
     )
 }

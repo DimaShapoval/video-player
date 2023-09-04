@@ -24,7 +24,6 @@ const MainFilter = ({ moviesInfo, context, classForGalary, infoForSlider }) => {
 
     let array = [];
     useEffect(() => { //create navButtons of films
-        console.log(moviesInfo);
         if (Math.ceil([...moviesInfo].length / 16) <= 1) { //search how many films, and how many pages we need
             //if it's only one page we don't create buttons
             setCountOfPages(null)
@@ -60,7 +59,6 @@ const MainFilter = ({ moviesInfo, context, classForGalary, infoForSlider }) => {
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
-    console.log();
     return (
         <div className={style.mainWrapper} >
             {webLovation.split('/')[1] !== "actor" && webLovation.split('/')[2] !== "view" ? 

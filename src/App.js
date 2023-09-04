@@ -28,17 +28,36 @@ function App() {
         let data = res.data;
         setMovieInfo(data); //add info to state
       })
-      
-      axios.get('https://akvani.com/php/get_ip.php') //send ip of user
-      .then(res =>{
+
+    axios.get('https://akvani.com/php/get_ip.php') //send ip of user
+      .then(res => {
         let data = res.data
-        console.log(data);
+        
       })
   }, [])
- 
-  useEffect(()=>{
-    const log = ()=>{
-        window.scrollTo(0,0)      
+  useEffect(() => {
+    if(localStorage.userId){
+      setInterval(() => {
+        axios.post(
+         'https://akvani.com/php/get_user_ban_status.php', {user_id:localStorage.userId}, 
+         { headers: {
+            "Content-Type": 'multipart/form-data'
+          }
+        })
+        .then(res => {
+          let data = res.data.isBanned;
+          if(data){
+            console.log("pidor");
+          }
+        })
+        
+      }, 600000)
+    }
+    
+  }, [])
+  useEffect(() => {
+    const log = () => {
+      window.scrollTo(0, 0)
     }
     window.addEventListener("beforeunload", log);
     return () => {
@@ -54,7 +73,7 @@ function App() {
         <MovieInfoContext.Provider value={moviesInfo} >
           {moviesInfo ? <Routing moviesInfo={moviesInfo} /> : <Loading />}
         </MovieInfoContext.Provider>
-        
+
       </div>
     </DomainLink.Provider>
 

@@ -31,3 +31,18 @@
     align-items: center;
     justify-content: center;
 }
+@media screen and (max-width: 980px) {
+    .wrapper{
+        width: 50%;
+    }
+}
+@media screen and (max-height: 650px) {
+    .wrapper{
+        margin-top: 20px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .wrapper{
+        width: 90%;
+    }
+}

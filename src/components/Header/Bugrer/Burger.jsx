@@ -32,6 +32,7 @@ const Burger = () => {
                             <NavLink to="/movies/page=1" className={item => item.isActive ? style.navLinksActive : style.navLinks} >电影</NavLink>
                             <NavLink to="/series/page=1" className={item => item.isActive ? style.navLinksActive : style.navLinks} >系列</NavLink>
                             <NavLink to="/cartoons/page=1" className={item => item.isActive ? style.navLinksActive : style.navLinks} >卡通</NavLink>
+                            <NavLink to="/login" className={item => item.isActive ? style.navLinksActive : style.navLinks}>登录</NavLink>
                         </ul>
                     </div> :
                     <div className={style.navigetor} >
@@ -39,6 +40,7 @@ const Burger = () => {
                             <NavLink to="/movies/page=1" className={item => item.isActive ? style.navLinksActive : style.navLinks} >电影</NavLink>
                             <NavLink to="/series/page=1" className={item => item.isActive ? style.navLinksActive : style.navLinks} >系列</NavLink>
                             <NavLink to="/cartoons/page=1" className={item => item.isActive ? style.navLinksActive : style.navLinks} >卡通</NavLink>
+                            <NavLink to="/login" className={item => item.isActive ? style.navLinksActive : style.navLinks}>登录</NavLink>
                         </ul>
                     </div>
 

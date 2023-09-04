@@ -41,7 +41,7 @@ const LoginInputsContainer = () => {
         }
         else {
             e.preventDefault();
-            axios.post('php/login_process.php', inputValue, {
+            axios.post('https://akvani.com/php/login_process.php', inputValue, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -51,6 +51,8 @@ const LoginInputsContainer = () => {
                     if (data.status === "success") {
                         navigator("/")
                         localStorage.setItem("username", data.username)
+                        localStorage.setItem("userId", data.id)
+                        console.log(localStorage.userId);
                     }
                     else {
                         e.preventDefault();

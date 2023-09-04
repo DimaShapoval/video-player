@@ -14,7 +14,7 @@ const RightSide = ({ moviesInfo }) => {
         }
     }, [])
     const logOut = () => {
-        localStorage.removeItem('username')
+        localStorage.clear()
         setUserInfo(null)
         axios.post('php/logout_process.php')
     }

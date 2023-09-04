@@ -26,7 +26,13 @@ const ScrollTopPictures = ({ classForGalary, infoForSlider, context }) => {
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        cssEase: "linear"
+        cssEase: "linear",
+        responsive: [{
+            breakpoint: 700,
+            settings:{
+                centerPadding: "10px",
+            }
+        }]
       };
     useMemo(() => {
         axios.get('https://akvani.com/php/send_slider_js.php?api_key=AIzaSyB-2FfjYXcQO3qkQjWYJQ4Z3ZQZ3ZQZ3ZQ')
