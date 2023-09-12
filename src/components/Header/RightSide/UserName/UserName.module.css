@@ -23,6 +23,7 @@
 }   
 .logoutWrapper p{
     width: 100px;
+   
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,4 +32,17 @@
     font-size: 17px;
     font-weight: 500;
     border-radius: 0 0 5px 5px;
+}
+@media screen and (max-width: 1320px) {
+    .logoutWrapper p{
+        width: 70px;
+    }
+    .navLink{
+        font-size: 12px;
+    }
+}
+@media screen and (max-width: 1200px) {
+    .navLink{
+        font-size: 3vmin;
+    }
 }

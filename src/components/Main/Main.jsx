@@ -27,7 +27,7 @@ const Main = ({ moviesInfo, context, classForGalary, infoForSlider }) => {
     // anime hentai
     let filmItems = categories.map((item, index) =>{
         let arrayOfInfo = [...moviesInfo].filter(info => info.category_name == item);
-        return <FilmRows nameOfCategory={item} key={index} context={context} moviesInfo={arrayOfInfo} nav={'更多的'} />
+        return <FilmRows nameOfCategory={item} key={index}  context={context} moviesInfo={arrayOfInfo} nav={'更多的'} />
     })
     return (
         <div className={style.mainWrapper} >

@@ -1,0 +1,95 @@
+
+.iframeWrapper{
+    position: fixed;
+    top: 90vh;
+    right: 40px; 
+    /* 10px */
+    width: auto;
+    z-index: 99999;
+    background-color: aliceblue;
+    border-radius: 10px;
+}
+.iframeWrapperActive{
+    position: fixed;
+    right: 10px;
+    top: 30vh;
+    width: auto;
+    z-index: 99999;
+    background-color: aliceblue;
+    border-radius: 10px;
+}
+.iconWrapper{
+    width: 40px;
+    height: 40px;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+}
+.iframeWrapperActive .closeWrapper span{
+    display: block;
+    position: absolute;
+    padding: 10px;
+}
+.iframeWrapper .closeWrapper span{
+    display: none;
+}
+.iconWrapper span{
+    margin: 0;
+    display: block;
+}
+.iframeWrapper iframe{
+    display: none;
+    height: 0;
+    
+}
+.iframeWrapperActive iframe{
+    width: 400px;
+    display: flex;
+}
+.iframeWrapperActive span{
+    display: none;
+}
+.chat-container{
+    max-width: 500px;
+}
+@media screen and (max-height: 1000px) {
+    .iframeWrapperActive{
+        top: 40vh;
+    }
+}
+@media screen and (max-height: 770px) {
+    .iframeWrapperActive{
+        top: 30vh;
+    }
+}
+@media screen and (max-height: 685px) {
+    .iframeWrapperActive{
+        top: 20vh;
+    }
+}
+@media screen and (max-height: 615px) {
+    .iframeWrapperActive{
+        top: 10vh;
+    }
+}
+@media screen and (max-height: 550px) {
+    .iframeWrapperActive{
+        top: 20vh;
+    }
+    
+}
+@media screen and (max-height: 520px) {
+    .iframeWrapperActive{
+        top: 10vh;
+    }
+    
+}
+@media screen and (max-width: 450px) {
+   
+    .iframeWrapperActive iframe{
+        width: 100vmin;
+        
+    }
+}

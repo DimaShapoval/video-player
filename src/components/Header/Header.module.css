@@ -36,6 +36,9 @@
 h2{
     margin: 0;
 }
+.search{
+    display: none;
+}
 .rightSide{
     width: 100%;
     display: grid;
@@ -64,17 +67,32 @@ h2{
     .rightSide{
         display: none;
     }
+    .search{
+        display: flex;
+    }
     .secondWrapper{
         position: fixed;
         z-index: 20;
         grid-template-columns: 20% 1fr;
         
     }
+    .search{
+        order: 1;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+    .logo{
+        order: 2;
+        display: flex;
+        justify-content: flex-start;
+    }
     .logoWrapper{
         order: 2;
-        justify-content: flex-end;
-        width: 85%;
-        margin-left: 0;
+        display: grid;
+        grid-template-columns: 75% 1fr;
+        margin-left: 5px;
+        width: 95%;
     }
     .burger{
         order: 1;

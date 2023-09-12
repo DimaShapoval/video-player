@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import store from './Redux/redux-store';
 import LoginContainer from './components/Login/LoginContainer';
 import SignUpContainer from './components/SignUp/SignUpContainer';
+import ConfirmPage from './components/ConfirmPage/ConfirmPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,12 +16,13 @@ root.render(
     <React.StrictMode>
       <Provider store={store} >
         <Routes>
-          <Route path='/*' element={<App/>} />
-          <Route path='/login' element={<LoginContainer/>} />
-          <Route path='/sign-up' element={<SignUpContainer/>} />
+          <Route  path="/confirm" element={<ConfirmPage />} />
+          <Route path='/*' element={<App />} />
+          <Route path='/login' element={<LoginContainer />} />
+          <Route path='/sign-up' element={<SignUpContainer />} />
         </Routes>
       </Provider>
-      
+
     </React.StrictMode>
   </BrowserRouter>
 

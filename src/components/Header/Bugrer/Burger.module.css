@@ -39,6 +39,11 @@
 
 
 }
+.navLinks:last-child{
+    margin-top: 50%;
+    display: flex;
+    justify-content: center;
+}
 .humburger .burger1{
     transform: rotate(0);
 }

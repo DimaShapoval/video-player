@@ -15,18 +15,26 @@ const SearchContainer = ({ moviesInfo }) => {
         setSearchValue("")
         navigator(`/${post.type}/view/${post.title}/${post.id}`) 
     }
+    const searchClick = (inputValue) =>{
+        if(inputValue === ""){
+            return false
+        }
+        else{
+            navigator(`/search/${inputValue}/page=1`)
+        }
+    }
     useEffect(()=>{
         setSearchValue("")
     }, [location])
     return (
         <div className={style.wrapper} >
-            <Search inputValue={searchValue} changeFunction={inputChangeValue} />
+            <Search inputValue={searchValue} searchClick={searchClick} changeFunction={inputChangeValue} />
             <div className={style.resualtWrapper} >
-                {[...moviesInfo].filter(post => {
+                {[...moviesInfo].filter((post, index) => {
                 if (searchValue === "") {
                     //if value of input is empty
                     return null;
-                } else if (post.title.toLowerCase().includes(searchValue.toLowerCase())) {
+                } else if (post.title.toLowerCase().includes(searchValue.toLowerCase()) && index <10) {
                     //returns filtered array with same values
                     return post;
                 }
