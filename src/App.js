@@ -12,6 +12,7 @@ import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import axios from 'axios';
 import Routing from './components/Routing/Rounting';
 import Loading from './components/MoviePage/Loading/Loading';
+import $ from "jquery"
 import ScrollTopPictures from './components/Main/ScrollTopPictures/ScrollTopPictures';
 
 export const DomainLink = createContext('https://simplepages.shop')
@@ -20,6 +21,7 @@ export const MovieInfoContext = createContext(null)
 
 function App() {
   const [moviesInfo, setMovieInfo] = useState([])
+  const [pageRender, setPageRender] = useState(false)
   const location = useLocation().pathname.split('/')[1]
   // links in public/title.js
   useMemo(() => {
@@ -36,6 +38,7 @@ function App() {
       })
   }, [])
   useEffect(() => {
+    setPageRender(true)
     if(localStorage.userId){
       setInterval(() => {
         axios.post(
@@ -55,6 +58,9 @@ function App() {
     }
     
   }, [])
+  const returnFalseOfPageRender = () =>{
+    setPageRender(false)
+  }
   useEffect(() => {
     const log = () => {
       window.scrollTo(0, 0)
@@ -69,7 +75,7 @@ function App() {
   return (
     <DomainLink.Provider value='https://simplepages.shop'>
       <div className='appWrapper' >
-        <Header className='header' moviesInfo={moviesInfo} />
+        <Header className='header' pageRender={pageRender} returnFalseOfPageRender={returnFalseOfPageRender} moviesInfo={moviesInfo} />
         <MovieInfoContext.Provider value={moviesInfo} >
           {moviesInfo ? <Routing moviesInfo={moviesInfo} /> : <Loading />}
         </MovieInfoContext.Provider>

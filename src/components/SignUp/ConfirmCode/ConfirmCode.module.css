@@ -1,0 +1,49 @@
+.wrapper {
+    display: flex;
+    width: 80%;
+    margin-bottom: 30px;
+
+    flex-direction: column;
+}
+
+.inputWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.submitWrapper {
+    width: 100%;
+    display: flex;
+    margin-top: 40px;
+    align-items: center;
+    padding-bottom: 30px;
+    justify-content: center;
+}
+.wrapper input[type="button"]{
+    width: 80%;
+}
+
+.wrapper input {
+    width: 10%;
+    height: 30px;
+    outline: none;
+    border: 2px solid gray;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+    /* Firefox */
+
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+}

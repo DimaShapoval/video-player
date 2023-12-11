@@ -76,8 +76,11 @@ span{
 .username{
     margin-bottom: 20px;
 }
-.errorEmail input[type="email"]{
+.errorEmail input[placeholder="电话号码"]{
     outline: 2px solid red;
+}
+input[type="button"]{
+    cursor: pointer;
 }
 .errorEmail label:nth-child(1){
     color:red;

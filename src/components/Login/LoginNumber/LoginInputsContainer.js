@@ -5,11 +5,11 @@ import LoginPassword from "./LoginPassword";
 import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const LoginInputsContainer = () => {
+const LoginInputsContainer = ({ successRequest }) => {
     const [showValuePassword, setshowValuePassword] = useState(["visibility_off", "password"])
     const [inputValue, setInputValue] = useState({ email: '', password: '' });
     const [wrapperClassName, setWrapperClassName] = useState(`${style.wrapper}`)
-    const EMAIL_REGEX = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    const EMAIL_REGEX = /^1[0-9]{10}$/;
     const navigator = useNavigate()
 
 
@@ -27,12 +27,13 @@ const LoginInputsContainer = () => {
 
     }
     const checkValueInRequest = (e) => {  // check value of from and send it in backend
-        if (inputValue.email === "" && inputValue.password === "" || !EMAIL_REGEX.test(inputValue.email) && inputValue.password.length < 6) {
+        if (inputValue.email === "" && inputValue.password === "" || !EMAIL_REGEX.test(inputValue.email.split('-').join("").split(")")[1]) && inputValue.password.length < 6) {
             e.preventDefault();
             setWrapperClassName(`${style.wrapper} ${style.errorAll}`)
         }
-        else if (!EMAIL_REGEX.test(inputValue.email)) {
+        else if (!EMAIL_REGEX.test(inputValue.email.split('-').join("").split(")")[1])) {
             e.preventDefault();
+            console.log(inputValue.email.split('-').join("").split(")")[1]);
             setWrapperClassName(`${style.wrapper} ${style.errorEmail}`)
         }
         else if (inputValue.password.length < 6) {
@@ -49,7 +50,7 @@ const LoginInputsContainer = () => {
                 .then(res => {
                     let data = res.data;
                     if (data.status === "success") {
-                        navigator("/")
+                        successRequest();
                         localStorage.setItem("username", data.username)
                         localStorage.setItem("userId", data.id)
                         console.log(localStorage.userId);
