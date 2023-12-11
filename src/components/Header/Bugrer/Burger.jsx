@@ -27,7 +27,7 @@ const Burger = () => {
     const logOut = () => {
         localStorage.clear()
         setUserInfo(null)
-        axios.post('php/logout_process.php')
+        axios.post('https://simplepages.shop/php/logout_process.php')
     }
     return (
         <div className={style.wrapper} >
@@ -43,9 +43,9 @@ const Burger = () => {
                 burgerTriger ? //check that burger clicked if true show our burger menu
                     <div className={`${style.navigetor}  ${style.active}`} >
                         <ul>
-                            <NavLink to="/movies/page=1" className={item => item.isActive ? style.navLinksActive : style.navLinks} >电影</NavLink>
-                            <NavLink to="/series/page=1" className={item => item.isActive ? style.navLinksActive : style.navLinks} >系列</NavLink>
-                            <NavLink to="/cartoons/page=1" className={item => item.isActive ? style.navLinksActive : style.navLinks} >卡通</NavLink>
+                            <NavLink to="/movies/page=1" className={item => item.isActive ? style.navLinksActive : style.navLinks} >Movie</NavLink>
+                            <NavLink to="/series/page=1" className={item => item.isActive ? style.navLinksActive : style.navLinks} >Series</NavLink>
+                            <NavLink to="/cartoons/page=1" className={item => item.isActive ? style.navLinksActive : style.navLinks} >Cartoon</NavLink>
                             <div className={style.navLinks} >
                             {localStorage.username ? <UserName username={userInfo} logOutFunction={logOut} /> : <Login />}
                             </div>
@@ -54,9 +54,9 @@ const Burger = () => {
                     </div> :
                     <div className={style.navigetor} >
                         <ul>
-                            <NavLink to="/movies/page=1" className={item => item.isActive ? style.navLinksActive : style.navLinks} >电影</NavLink>
-                            <NavLink to="/series/page=1" className={item => item.isActive ? style.navLinksActive : style.navLinks} >系列</NavLink>
-                            <NavLink to="/cartoons/page=1" className={item => item.isActive ? style.navLinksActive : style.navLinks} >卡通</NavLink>
+                            <NavLink to="/movies/page=1" className={item => item.isActive ? style.navLinksActive : style.navLinks} >Movie</NavLink>
+                            <NavLink to="/series/page=1" className={item => item.isActive ? style.navLinksActive : style.navLinks} >Series</NavLink>
+                            <NavLink to="/cartoons/page=1" className={item => item.isActive ? style.navLinksActive : style.navLinks} >Cartoon</NavLink>
                             {localStorage.username ? <UserName username={userInfo} logOutFunction={logOut} /> : <Login />}
                         </ul>
                     </div>

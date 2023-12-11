@@ -11,12 +11,11 @@ const ConfirmPage = () =>{
                 <img src={image} alt="" />
             </div>
             <div className={style.textWrapper} >
-                <h2>警告/Warning</h2>
-                <h5 className={style.chinaText}>如果您未满18岁，请离开该页面/</h5>
-                <h5>If you are under 18 years, please leave the page</h5>
+                <h2>Warning</h2>
+                <h5>Site use cookies, apply this</h5>
             </div>
             <div className={style.navWrapper} >
-               <NavLink to={"/"} className={style.nav} >已满18+，点此进入</NavLink> 
+               <NavLink to={"/"} className={style.nav} >Apply</NavLink> 
             </div>
             
         </div>

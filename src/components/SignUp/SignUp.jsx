@@ -6,7 +6,7 @@ const SignUp = () => {
     return (
         <form className={style.wrapper}>
             <div className={style.headerTextWrapper} >
-                <p className={style.headerText} >报名</p>
+                <p className={style.headerText} >Sign up</p>
             </div>
             <div className={style.inputsWrapper} >
                 <SignUpInputsContainer/>

@@ -68,18 +68,18 @@ const SignUpInputsContainer = () => {
     
     return (
         <div className={wrapperClassName} >
-            <label className={style.userLabel}>用户名</label>
-            <input className={style.username} onChange={controlNumber} value={inputValue.username} name="username" placeholder="用户名" />
-            <label>电子邮件</label>
+            <label className={style.userLabel}>Username</label>
+            <input className={style.username} onChange={controlNumber} value={inputValue.username} name="username" placeholder="Username" />
+            <label>Email</label>
             <SignUpNumber change={controlNumber} value={inputValue.number} />
-            <label className={style.label} >创建密码</label>
+            <label className={style.label} >Password</label>
             <div className={style.passwordWrapper} >
                 <SignUpPassword value={inputValue.password} name="password" change={controlNumber} typeOfInput={showValuePassword[1]} />
                 <span onClick={handleClick} className={`material-symbols-outlined`}>
                     {showValuePassword[0]}
                 </span>
             </div>
-            <label className={style.label} >重复输入密码</label>
+            <label className={style.label} >Repeat password</label>
             <div className={style.passwordWrapper} >
                 <SignUpPassword value={inputValue.secondPassword} name="confirm_password" change={controlNumber} typeOfInput={showValuePassword1[1]} />
                 <span onClick={handleClick1} className={`material-symbols-outlined`}>
@@ -87,7 +87,7 @@ const SignUpInputsContainer = () => {
                 </span>
             </div>
             <div className={style.submitWrapper} >
-                <input onClick={checkValueInRequest} type="button"  value={"进来"} />
+                <input onClick={checkValueInRequest} type="button"  value={"Come in"} />
             </div>
 
         </div>

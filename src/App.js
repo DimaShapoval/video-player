@@ -14,7 +14,7 @@ import Routing from './components/Routing/Rounting';
 import Loading from './components/MoviePage/Loading/Loading';
 import ScrollTopPictures from './components/Main/ScrollTopPictures/ScrollTopPictures';
 
-export const DomainLink = createContext('https://akvani.com')
+export const DomainLink = createContext('https://simplepages.shop')
 export const MovieInfoContext = createContext(null)
 
 
@@ -23,13 +23,13 @@ function App() {
   const location = useLocation().pathname.split('/')[1]
   // links in public/title.js
   useMemo(() => {
-    axios.get('https://akvani.com/php/send_film_js.php?api_key=AIzaSyB-2FfjYXcQO3qkQjWYJQ4Z3ZQZ3ZQZ3ZQ')
+    axios.get('https://simplepages.shop/php/send_film_js.php?api_key=AIzaSyB-2FfjYXcQO3qkQjWYJQ4Z3ZQZ3ZQZ3ZQ')
       .then(res => {
         let data = res.data;
         setMovieInfo(data); //add info to state
       })
 
-    axios.get('https://akvani.com/php/get_ip.php') //send ip of user
+    axios.get('https://simplepages.shop/php/get_ip.php') //send ip of user
       .then(res => {
         let data = res.data
         
@@ -39,7 +39,7 @@ function App() {
     if(localStorage.userId){
       setInterval(() => {
         axios.post(
-         'https://akvani.com/php/get_user_ban_status.php', {user_id:localStorage.userId}, 
+         'https://simplepages.shop/php/get_user_ban_status.php', {user_id:localStorage.userId}, 
          { headers: {
             "Content-Type": 'multipart/form-data'
           }
@@ -67,7 +67,7 @@ function App() {
 
   // fetchMovieInfo();
   return (
-    <DomainLink.Provider value='https://akvani.com'>
+    <DomainLink.Provider value='https://simplepages.shop'>
       <div className='appWrapper' >
         <Header className='header' moviesInfo={moviesInfo} />
         <MovieInfoContext.Provider value={moviesInfo} >

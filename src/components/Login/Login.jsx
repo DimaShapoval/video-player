@@ -6,7 +6,7 @@ const Login = () => {
     return (
         <form className={style.wrapper}>
             <div className={style.headerTextWrapper} >
-                <p className={style.headerText} >登录</p>
+                <p className={style.headerText} >Log in</p>
             </div>
             <div className={style.inputsWrapper} >
                 <LoginInputsContainer/>

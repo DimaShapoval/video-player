@@ -41,7 +41,7 @@ const LoginInputsContainer = () => {
         }
         else {
             e.preventDefault();
-            axios.post('https://akvani.com/php/login_process.php', inputValue, {
+            axios.post('login_process.php', inputValue, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -64,9 +64,9 @@ const LoginInputsContainer = () => {
     }
     return (
         <div className={wrapperClassName} >
-            <label>电子邮件</label>
+            <label>Email</label>
             <LoginNumber change={controlNumber} value={inputValue.email} />
-            <label className={style.label} >密码</label>
+            <label className={style.label} >Password</label>
             <div className={style.passwordWrapper} >
                 <LoginPassword value={inputValue.password} change={controlNumber} typeOfInput={showValuePassword[1]} />
                 <span onClick={handleClick} className={`material-symbols-outlined`}>
@@ -74,10 +74,10 @@ const LoginInputsContainer = () => {
                 </span>
             </div>
             <div className={style.signUpWrapper} >
-                <p>没有帐户？ 让我们 <NavLink to={"/sign-up"} >报名</NavLink></p>
+                <p>Don't have an account?<NavLink to={"/sign-up"} >Sign up</NavLink></p>
             </div>
             <div className={style.submitWrapper} >
-                <input onClick={checkValueInRequest} type="submit" value={"进来"} />
+                <input onClick={checkValueInRequest} type="submit" value={"Come in"} />
             </div>
 
         </div>

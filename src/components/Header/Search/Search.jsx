@@ -7,7 +7,7 @@ const Search = ({ inputValue, changeFunction, searchClick }) => {
     const navigate = useNavigate();
     return (
         <div className={style.wrapper} >
-            <input onChange={changeFunction} className={style.searchInput} type="text" value={inputValue} placeholder="搜索" />
+            <input onChange={changeFunction} className={style.searchInput} type="text" value={inputValue} placeholder="Search" />
             <span onClick={()=>{searchClick(inputValue)}} className="material-symbols-outlined">
                 search
             </span>
