@@ -69,15 +69,9 @@ const SignUpInputsContainer = ({ successRequest }) => {
     
     return (
         <div className={wrapperClassName} >
-<<<<<<< HEAD
             <label className={style.userLabel}>Username</label>
             <input className={style.username} onChange={controlNumber} value={inputValue.username} name="username" placeholder="Username" />
             <label>Email</label>
-=======
-            <label className={style.userLabel}>用户名</label>
-            <input className={style.username} onChange={controlNumber} value={inputValue.username} name="username" placeholder="用户名" />
-            <label>电话号码</label>
->>>>>>> faa59d96d908161701628d5460c0c0bf0fd78a24
             <SignUpNumber change={controlNumber} value={inputValue.number} />
             <label className={style.label} >Password</label>
             <div className={style.passwordWrapper} >

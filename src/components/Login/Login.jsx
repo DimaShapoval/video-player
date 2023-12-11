@@ -11,11 +11,8 @@ const Login = () => {
     return (
         <form className={style.wrapper}>
             <div className={style.headerTextWrapper} >
-<<<<<<< HEAD
-                <p className={style.headerText} >Log in</p>
-=======
-            {resaultOfRequest ? <p className={style.headerText} >通过短信确认代码</p> : <p className={style.headerText} >登录</p>}
->>>>>>> faa59d96d908161701628d5460c0c0bf0fd78a24
+            <p className={style.headerText} >Log in</p>
+            {resaultOfRequest ? <p className={style.headerText} >Confirm code via SMS</p> : <p className={style.headerText} >Log in</p>}
             </div>
             <div className={style.inputsWrapper} >
             {resaultOfRequest ? <ConfirmCode/> : <LoginInputsContainer successRequest={successRequest}/>}

@@ -11,11 +11,11 @@ const SignUp = ({}) => {
     return (
         <form className={style.wrapper}>
             <div className={style.headerTextWrapper} >
-<<<<<<< HEAD
+
                 <p className={style.headerText} >Sign up</p>
-=======
-              {resaultOfRequest ? <p className={style.headerText} >通过短信确认代码</p> : <p className={style.headerText} >报名</p>}  
->>>>>>> faa59d96d908161701628d5460c0c0bf0fd78a24
+
+              {resaultOfRequest ? <p className={style.headerText} >Confirm code via SMS</p> : <p className={style.headerText} >Sign up</p>}  
+
             </div>
             <div className={style.inputsWrapper} >
             {resaultOfRequest ? <ConfirmCode/> : <SignUpInputsContainer successRequest={successRequest} />}
